@@ -1,0 +1,9 @@
+# Archivos compilados por Maven
+target/
+
+# Configuraciones personales de NetBeans
+nbproject/private/
+nbproject/project.properties
+
+# Ocultar credenciales locales de la Base de Datos
+src/main/resources/db.properties

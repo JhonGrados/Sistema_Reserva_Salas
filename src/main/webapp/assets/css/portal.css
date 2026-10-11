@@ -1,0 +1,262 @@
+/* ==========================================================================
+   SISTEMA DE RESERVAS UTP - ESTILOS DEL PORTAL DE ESTUDIANTES Y GESTIÓN
+   ========================================================================== */
+
+:root {
+    --utp-primary: #1e3a8a;
+    --utp-primary-hover: #1e40af;
+    --utp-secondary: #0f172a;
+    --utp-accent: #dc2626;
+    --utp-bg: #f8fafc;
+    --utp-card-bg: #ffffff;
+    --utp-text-main: #0f172a;
+    --utp-text-muted: #64748b;
+    --utp-border: #e2e8f0;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--utp-bg);
+    color: var(--utp-text-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* NAVBAR */
+.portal-navbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--utp-border);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+    padding: 0.75rem 0;
+}
+
+.portal-brand {
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: var(--utp-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    text-decoration: none;
+}
+
+.portal-brand img {
+    height: 38px;
+    object-fit: contain;
+}
+
+.portal-brand span {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #475569;
+    background: #f1f5f9;
+    padding: 3px 8px;
+    border-radius: 6px;
+    letter-spacing: 0.05em;
+}
+
+.nav-link-custom {
+    color: #475569;
+    font-weight: 600;
+    font-size: 0.92rem;
+    padding: 0.5rem 0.9rem !important;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.nav-link-custom:hover {
+    color: var(--utp-primary);
+    background-color: #f1f5f9;
+}
+
+.nav-link-custom.active {
+    color: var(--utp-primary) !important;
+    background-color: #eff6ff !important;
+    font-weight: 700;
+}
+
+/* CARDS */
+.stat-card {
+    background: #ffffff;
+    border: 1px solid var(--utp-border);
+    border-radius: 14px;
+    padding: 1.35rem 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.03);
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.06);
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+}
+
+.stat-icon.blue {
+    background-color: #dbeafe;
+    color: #1d4ed8;
+}
+
+.stat-icon.green {
+    background-color: #dcfce7;
+    color: #15803d;
+}
+
+.stat-icon.amber {
+    background-color: #fef3c7;
+    color: #b45309;
+}
+
+.stat-icon.purple {
+    background-color: #f3e8ff;
+    color: #7e22ce;
+}
+
+/* HERO WELCOME BANNER */
+.welcome-banner {
+    background: linear-gradient(135deg, #1e3a8a 0%, #172554 100%);
+    color: #ffffff;
+    border-radius: 16px;
+    padding: 2rem 2.25rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 25px -5px rgba(30, 58, 138, 0.25);
+}
+
+.welcome-banner::after {
+    content: "";
+    position: absolute;
+    right: -20px;
+    top: -30px;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.student-badge-pill {
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 4px 12px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* PROXIMA RESERVA HIGHLIGHT */
+.next-booking-card {
+    background: #ffffff;
+    border: 1px solid #bfdbfe;
+    border-left: 6px solid #2563eb;
+    border-radius: 14px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
+}
+
+/* TABLAS */
+.custom-table-card {
+    background: #ffffff;
+    border: 1px solid var(--utp-border);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04);
+}
+
+.custom-table thead th {
+    background-color: #f8fafc;
+    color: #475569;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--utp-border);
+    padding: 0.9rem 1.1rem;
+}
+
+.custom-table tbody td {
+    padding: 1rem 1.1rem;
+    vertical-align: middle;
+    font-size: 0.92rem;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.custom-table tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+/* BADGES DE ESTADO */
+.badge-status {
+    font-size: 0.76rem;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    letter-spacing: 0.03em;
+}
+
+.badge-reservado {
+    background-color: #dbeafe;
+    color: #1e40af;
+    border: 1px solid #bfdbfe;
+}
+
+.badge-ocupado {
+    background-color: #dcfce7;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+}
+
+.badge-finalizado {
+    background-color: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+}
+
+.badge-cancelado {
+    background-color: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+
+/* BOTONES */
+.btn-utp {
+    background-color: var(--utp-primary);
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 0.55rem 1.25rem;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.btn-utp:hover {
+    background-color: var(--utp-primary-hover);
+    color: #ffffff;
+}
+
+/* FOOTER */
+.portal-footer {
+    margin-top: auto;
+    background-color: #ffffff;
+    border-top: 1px solid var(--utp-border);
+    padding: 1.25rem 0;
+    font-size: 0.85rem;
+    color: #64748b;
+}
