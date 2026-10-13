@@ -1,7 +1,6 @@
 -- =============================================================================
--- SISTEMA DE RESERVAS DE SALAS DE ESTUDIO UNIVERSITARIO (UTP)
+-- SISTEMA DE RESERVAS DE SALAS DE ESTUDIO UNIVERSITARIO 
 -- Base de Datos: reservas_salas_db
--- Codificación: UTF-8 (utf8mb4)
 -- =============================================================================
 
 CREATE DATABASE IF NOT EXISTS reservas_salas_db
@@ -22,7 +21,7 @@ CREATE TABLE IF NOT EXISTS rol (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- -----------------------------------------------------------------------------
--- 2. TABLA: tipo_estudiante (Jerarquía de prioridad y cupos de reserva)
+-- 2. TABLA: tipo_estudiante 
 -- -----------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS tipo_estudiante (
     id_tipo INT AUTO_INCREMENT PRIMARY KEY,
@@ -33,7 +32,7 @@ CREATE TABLE IF NOT EXISTS tipo_estudiante (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- -----------------------------------------------------------------------------
--- 3. TABLA: usuario (Actores: Administradores, Encargados y Estudiantes)
+-- 3. TABLA: usuario 
 -- -----------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS usuario (
     id_usuario INT AUTO_INCREMENT PRIMARY KEY,
@@ -52,12 +51,12 @@ CREATE TABLE IF NOT EXISTS usuario (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- -----------------------------------------------------------------------------
--- 4. TABLA: sala (Cubículos y Salas de Estudio)
+-- 4. TABLA: sala 
 -- -----------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS sala (
     id_sala INT AUTO_INCREMENT PRIMARY KEY,
-    codigo_sala VARCHAR(20) UNIQUE NOT NULL,      -- Ej: 'CUB-01', 'CUB-02'
-    capacidad INT NOT NULL,                       -- Aforo máximo (ej. 4, 6, 8 personas)
+    codigo_sala VARCHAR(20) UNIQUE NOT NULL,      
+    capacidad INT NOT NULL,                      
     es_silenciosa INT NOT NULL DEFAULT 0,         -- 0 = Sala grupal / debate, 1 = Silenciosa
     ubicacion VARCHAR(100) NOT NULL DEFAULT 'Piso 2 - Biblioteca Central',
     recursos VARCHAR(255) NOT NULL DEFAULT 'Pizarra acrílica, Tomas eléctricas, Wi-Fi 6',
@@ -65,7 +64,7 @@ CREATE TABLE IF NOT EXISTS sala (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- -----------------------------------------------------------------------------
--- 5. TABLA: reserva (Gestión de turnos, aforo y check-in físico)
+-- 5. TABLA: reserva 
 -- -----------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS reserva (
     id_reserva INT AUTO_INCREMENT PRIMARY KEY,
@@ -74,8 +73,8 @@ CREATE TABLE IF NOT EXISTS reserva (
     fecha_reserva DATE NOT NULL,
     hora_inicio TIME NOT NULL,
     hora_fin TIME NOT NULL,
-    num_integrantes INT NOT NULL,                 -- Validar: num_integrantes <= sala.capacidad
-    motivo VARCHAR(200) NULL,                     -- Tema/motivo de estudio
+    num_integrantes INT NOT NULL,                 
+    motivo VARCHAR(200) NULL,                  
     estado VARCHAR(20) NOT NULL DEFAULT 'RESERVADO', -- 'RESERVADO', 'OCUPADO', 'FINALIZADO', 'CANCELADO', 'NO_ASISTIO'
     hora_check_in DATETIME NULL,                  -- Registra el check-in presencial
     fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -84,7 +83,7 @@ CREATE TABLE IF NOT EXISTS reserva (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- =============================================================================
--- INSERCIÓN DE DATOS DE PRUEBA
+-- DATOS DE PRUEBA
 -- =============================================================================
 
 -- 1. Roles
